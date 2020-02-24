@@ -28,13 +28,29 @@
     </div>
     <table th:fragment="job-table" class="job-listing">
         <tr  th:each="job : ${jobs}">
+<!--            <td>-->
+<!--                <p th:text="${'ID: ' + job.getId()}"></p>-->
+<!--                <p th:text="${'Name: ' + job.getName()}"></p>-->
+<!--                <p th:text="${'Employer: ' + job.getEmployer()}"></p>-->
+<!--                <p th:text="${'Location: ' + job.getLocation()}"></p>-->
+<!--                <p th:text="${'Position Type: ' + job.getPositionType()}"></p>-->
+<!--                <p th:text="${'Core Competency: ' + job.getCoreCompetency()}"></p>-->
+<!--            </td>-->
             <td>
-                <p th:text="${'ID: ' + job.getId()}"></p>
-                <p th:text="${'Name: ' + job.getName()}"></p>
-                <p th:text="${'Employer: ' + job.getEmployer()}"></p>
-                <p th:text="${'Location: ' + job.getLocation()}"></p>
-                <p th:text="${'Position Type: ' + job.getPositionType()}"></p>
-                <p th:text="${'Core Competency: ' + job.getCoreCompetency()}"></p>
+                <p>ID:</p>
+                <p>Name:</p>
+                <p>Employer</p>
+                <p>Location:</p>
+                <p>Position Type:</p>
+                <p>Core Competency:</p>
+            </td>
+            <td>
+                <p th:text="${job.getId()}"></p>
+                <p th:text="${job.getName()}"></p>
+                <p><a th:href="@{/list/jobs(column='employer',value=${job.getEmployer()})}" th:text="${job.getEmployer()}"></a></p>
+                <p><a th:href="@{/list/jobs(column='location',value=${job.getLocation()})}" th:text="${job.getLocation()}"></a></p>
+                <p><a th:href="@{/list/jobs(column='positionType',value=${job.getPositionType()})}" th:text="${job.getPositionType()}"></a></p>
+                <p><a th:href="@{/list/jobs(column='coreCompetency',value=${job.getCoreCompetency()})}" th:text="${job.getCoreCompetency()}"></a></p>
             </td>
         </tr>
     </table>
